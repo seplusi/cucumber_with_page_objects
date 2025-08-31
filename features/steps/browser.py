@@ -1,0 +1,88 @@
+import time
+from behave import step
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from resources.page_objects.toyota_cookie_page import ToyotaCookiesPage
+from resources.page_objects.toyota_home_page import ToyotaHomePage, ToyotaVehiclesPage, ToyotaShoppingPage
+
+chromedriver_path = "/home/luis/Documents/Projects/chromedriver/chromedriver"
+
+
+@step('I open a chrome web browser and go to "{url}" url')
+def create_webdriver(context, url):
+    options = webdriver.ChromeOptions()
+    options.add_argument("--start-maximized")
+
+    # Instanciate webdriver
+    context.driver = webdriver.Chrome(options=options, service=ChromeService(executable_path=chromedriver_path))
+    context.driver.get(url)
+
+@step('the page "{page_name}" is loaded after "{timeout:d}" seconds')
+@step('the page "{page_name}" is loaded after some time')
+def load_page(context, page_name, timeout=20):
+     context.page = globals()[page_name](context.driver, timeout)
+
+@step('I accept the cookie')
+def load_and_accept_cookie(context):
+     context.page.accept()
+
+@step('cookie banner is not displayed after some time')
+def element_not_displayed_after_some_time(context):
+     context.page.cookie_banner_not_displayed_after_some_time()
+
+@step('the text of element "{element}" is equal to "{text}"')
+def element_text_is_equal(context, element, text):
+     webdriver_ele = getattr(context.page, element)
+     assert webdriver_ele.text == text, f'Text {text} differs from {webdriver_ele.text}'
+     
+@step('the text of element "{element}" contains text "{text}"')
+def element_text_contains(context, element, text):
+     webdriver_ele = getattr(context.page, element)
+     assert text in webdriver_ele.text, f'Text {text} not in {webdriver_ele.text}'
+
+@step('I close webdriver')
+def close_web_driver(context):
+    # Example cleanup: close a browser, reset a database, etc.
+    if hasattr(context, 'driver'):
+            context.driver.quit()
+
+@step('the cookie "{cookie}" is found in the browser cookies')
+def get_browser_cookies(context, cookie):
+     cookies_lst = context.driver.get_cookies()
+     assert cookie in [item['domain'] for item in cookies_lst], f'List of current cookies: {cookies_lst}'
+
+@step('I click on the "{element}" button')
+def click_element(context, element):
+     webdriver_ele = getattr(context.page, element)
+     webdriver_ele.click()
+
+@step('there are "{count:d}" elements on the "{element_group}" elements list after some time')
+def number_of_elements_on_list(context, count, element_group, timeout=10):
+     init_ts = int(time.time())
+     while int(time.time()) < init_ts + timeout:
+          try:
+               if len(getattr(context.page, element_group)) == count:
+                    break
+               time.sleep(1)
+          except Exception:
+               time.sleep
+     else:
+          assert False, f'Could not find {count} elements in element group {element_group}'
+
+@step('the elements list "{elements_list}" contains the following texts in this order')
+def list_text_contain(context, elements_list):
+     for row, element in zip(context.table, getattr(context.page, elements_list)):
+          assert row['content'] == element.text, f'{row["content"]} differs from {element.text}'
+
+@step('each car slide has the correct info after moving the mouse to it')
+def check_each_model(context):
+     car_names = [row['name'] for row in context.table]
+     hybrid_txts = [row['hybrid'] for row in context.table]
+
+     context.page.verify_each_car_slide_has_correct_data(car_names, hybrid_txts)
+
+@step('each shopping car slide has the correct info after moving the mouse to it')
+def check_eachshopping_slide(context):
+     car_names = [row['name'] for row in context.table]
+
+     context.page.verify_each_car_slide_has_correct_data(car_names)

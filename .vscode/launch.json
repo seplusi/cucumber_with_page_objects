@@ -1,0 +1,28 @@
+    {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Python: Behave current file",
+                "type": "debugpy",
+                "request": "launch",
+                "program": "/home/luis/Documents/Projects/.venv/bin/behave", // Adjust path to your behave executable
+                "args": [
+                    "${file}"
+                ],
+                "console": "integratedTerminal",
+                "justMyCode": true
+            },
+            {
+                "name": "Debug Behave Scenario",
+                "type": "debugpy",
+                "request": "launch",
+                "program": "/home/luis/Documents/Projects/.venv/bin/behave", // Adjust path to your behave executable
+                "args": [
+                    "--tags", "@debug", // Tag your specific scenario with @debug
+                    "${file}" // Or specify the feature file path directly
+                ],
+                "console": "integratedTerminal",
+                "justMyCode": false // Important for stepping into Behave/Cucumber code
+            }
+        ]
+    }
