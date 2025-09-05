@@ -21,7 +21,7 @@ def create_webdriver(context, url):
     context.driver.get('https://www.toyota.com')
 
 @step('I change the context to "{context_name}"')
-def change_context_to(context, context_name, timeout=10):
+def change_context_to(context, context_name, timeout=20):
     new_context = None
     init_ts = int(time.time())
     while int(time.time()) < init_ts + timeout and not new_context:
@@ -29,6 +29,11 @@ def change_context_to(context, context_name, timeout=10):
             if context_name in context_item:
                 new_context = context_item
                 break
+        else:
+            continue
+        break
+    else:
+        assert False, f'Could not set context to {context_name} within {timeout} seconds'
     context.driver.switch_to.context(context_item)
 
 @step('I accept to open chrome browser without account')
