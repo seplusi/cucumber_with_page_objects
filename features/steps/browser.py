@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from resources.page_objects.toyota_cookie_page import ToyotaCookiesPage
 from resources.page_objects.toyota_home_page import ToyotaHomePage, ToyotaVehiclesPage, ToyotaShoppingPage
+from resources.page_objects.mobile.mobile_toyota_cookie_page import MobileToyotaCookiesPage
 
 chromedriver_path = "/home/luis/Documents/Projects/chromedriver/chromedriver"
 
@@ -41,7 +42,7 @@ def element_text_contains(context, element, text):
      assert text in webdriver_ele.text, f'Text {text} not in {webdriver_ele.text}'
 
 @step('I close webdriver')
-def close_web_driver(context):
+def close_driver(context):
     # Example cleanup: close a browser, reset a database, etc.
     if hasattr(context, 'driver'):
             context.driver.quit()

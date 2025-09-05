@@ -1,8 +1,4 @@
 Feature: Test feature
-
-  Actions After each Scenario:  
-    Then I close webdriver
-
  
   Scenario: Scenario name test1
     Given I sleep "1" seconds

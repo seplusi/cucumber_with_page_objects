@@ -1,5 +1,5 @@
 import time
-from steps.browser import close_web_driver
+from steps.browser import close_driver
 
 
 def before_scenario(context, scenario):
@@ -9,5 +9,4 @@ def before_scenario(context, scenario):
 
 def after_scenario(context, scenario):
     print(f"Executing teardown for scenario: {scenario.name}")
-    close_web_driver(context)
-
+    close_driver(context)
