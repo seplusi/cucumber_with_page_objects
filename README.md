@@ -26,3 +26,8 @@ appium --base-path /wd/hub
 
 # INFO: This works for appium-server 3.0. Check doc in "https://appium.io/docs/en/3.0/guides/security/". It will download the necessary android chrome driver under the above folder.
 appium --base-path /wd/hub --relaxed-security
+
+
+W3C Mobile Gestures Commands
+"mobile: swipeGesture" : Performs a typical swipe up/down gesture
+'mobile: scrollGesture' : Performs a typical scroll up/down gesture. If I specify an elementId then it means I want to scroll within that element, aka, the element has a scroll bar. If no elementId is specified, then the while browser is your scroll.

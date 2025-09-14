@@ -1,10 +1,13 @@
 import time
+import re
 from behave import step
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.common.exceptions import ElementNotInteractableException
 from resources.page_objects.toyota_cookie_page import ToyotaCookiesPage
 from resources.page_objects.toyota_home_page import ToyotaHomePage, ToyotaVehiclesPage, ToyotaShoppingPage
 from resources.page_objects.mobile.mobile_toyota_cookie_page import MobileToyotaCookiesPage
+from resources.page_objects.mobile.mobile_toyota_home_page import MobileToyotaHomePage
 
 chromedriver_path = "/home/luis/Documents/Projects/chromedriver/chromedriver"
 
@@ -35,6 +38,11 @@ def element_not_displayed_after_some_time(context):
 def element_text_is_equal(context, element, text):
      webdriver_ele = getattr(context.page, element)
      assert webdriver_ele.text == text, f'Text {text} differs from {webdriver_ele.text}'
+
+@step('the text of element "{element}" matches the regex "{reg_txt}"')
+def element_text_is_equal(context, element, reg_txt):
+     webdriver_ele = getattr(context.page, element)
+     assert re.search(reg_txt, webdriver_ele.text), f'Regex {reg_txt} not found in {webdriver_ele.text}'
      
 @step('the text of element "{element}" contains text "{text}"')
 def element_text_contains(context, element, text):
@@ -56,6 +64,19 @@ def get_browser_cookies(context, cookie):
 def click_element(context, element):
      webdriver_ele = getattr(context.page, element)
      webdriver_ele.click()
+
+@step('I safe click on the "{element}" button')
+def click_element_expecting_failure_and_retry(context, element, timeout=10):
+     init_ts = int(time.time())
+     while int(time.time()) < init_ts + timeout:
+          try:
+               click_element(context, element)
+               break
+          except ElementNotInteractableException:
+               time.sleep(0.5)
+     else:
+          click_element(context, element)
+
 
 @step('there are "{count:d}" elements on the "{element_group}" elements list after some time')
 def number_of_elements_on_list(context, count, element_group, timeout=10):
