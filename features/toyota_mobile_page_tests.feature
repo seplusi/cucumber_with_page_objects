@@ -37,6 +37,7 @@ Feature: Test feature
     And cookie banner is not displayed after some time
     And the cookie ".www.toyota.com" is found in the browser cookies
 
+  @debug
   Scenario: Test toyota home web page with full swipe
     Given I open an android chrome web browser and go to "https://www.toyota.com/" url
     And I accept to open chrome browser without account 
@@ -62,7 +63,6 @@ Feature: Test feature
     And I safe click on the "play_btn" button
     And I perform a swipe "up" with percentage "50.0" of total screen
 
-  @debug
   Scenario: Test toyota home web page after clicking hamburger icon
     Given I open an android chrome web browser and go to "https://www.toyota.com/" url
     And I accept to open chrome browser without account 

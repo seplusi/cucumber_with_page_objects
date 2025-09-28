@@ -37,17 +37,17 @@ def element_not_displayed_after_some_time(context):
 @step('the text of element "{element}" is equal to "{text}"')
 def element_text_is_equal(context, element, text):
      webdriver_ele = getattr(context.page, element)
-     assert webdriver_ele.text == text, f'Text {text} differs from {webdriver_ele.text}'
+     assert webdriver_ele.web_element.text == text, f'Text {text} differs from {webdriver_ele.web_element.text}'
 
 @step('the text of element "{element}" matches the regex "{reg_txt}"')
 def element_text_is_equal(context, element, reg_txt):
      webdriver_ele = getattr(context.page, element)
-     assert re.search(reg_txt, webdriver_ele.text), f'Regex {reg_txt} not found in {webdriver_ele.text}'
+     assert re.search(reg_txt, webdriver_ele.web_element.text), f'Regex {reg_txt} not found in {webdriver_ele.web_element.text}'
      
 @step('the text of element "{element}" contains text "{text}"')
 def element_text_contains(context, element, text):
      webdriver_ele = getattr(context.page, element)
-     assert text in webdriver_ele.text, f'Text {text} not in {webdriver_ele.text}'
+     assert text in webdriver_ele.web_element.text, f'Text {text} not in {webdriver_ele.web_element.text}'
 
 @step('I close webdriver')
 def close_driver(context):
@@ -63,7 +63,7 @@ def get_browser_cookies(context, cookie):
 @step('I click on the "{element}" button')
 def click_element(context, element):
      webdriver_ele = getattr(context.page, element)
-     webdriver_ele.click()
+     webdriver_ele.web_element.click()
 
 @step('I safe click on the "{element}" button')
 def click_element_expecting_failure_and_retry(context, element, timeout=10):

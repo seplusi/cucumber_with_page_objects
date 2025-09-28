@@ -23,7 +23,7 @@ def create_webdriver(context, url):
     context.driver.get('https://www.toyota.com')
 
 @step('I change the context to "{context_name}"')
-def change_context_to(context, context_name, timeout=30):
+def change_context_to(context, context_name, timeout=60):
     new_context = None
     init_ts = int(time.time())
     while int(time.time()) < init_ts + timeout and not new_context:

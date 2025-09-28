@@ -1,0 +1,45 @@
+MobileToyotaHomePage:
+  - toyota_logo_btn:
+      Locator-Type   : css selector
+      Locator-Value  : a[data-di-id="#mobile-logo"]
+      Wait-For-Loaded: True
+  - user_btn:
+      Locator-Type   : css selector
+      Locator-Value  : button[aria-label="user icon"]
+      Wait-For-Loaded: True
+  - hamburger_btn:
+      Locator-Type   : css selector
+      Locator-Value  : button[aria-label="hamburger"]
+      Wait-For-Loaded: True
+  - homepage_carousel:
+      Locator-Type   : css selector
+      Locator-Value  : div[data-aa-content-section="homepage hero"] ul[data-panelselect="carousel"]
+      Wait-For-Loaded: True
+  - learn_more:
+      Locator-Type   : css selector
+      Locator-Value  : div[data-aa-content-section="homepage hero"] li[class="cmp-carousel__item js_slide active"] span
+      Wait-For-Loaded: True
+  - info_btn:
+      Locator-Type   : css selector
+      Locator-Value  : div[data-aa-content-section="homepage hero"] li[class="cmp-carousel__item js_slide active"] button[aria-label="info"]
+      Wait-For-Loaded: True
+  - heading_txt:
+      Locator-Type   : css selector
+      Locator-Value  : div[data-aa-content-section="homepage hero"] li[class="cmp-carousel__item js_slide active"] h2[class="title heading-02"]
+      Wait-For-Loaded: True
+  - subhead_txt:
+      Locator-Type   : css selector
+      Locator-Value  : div[data-aa-content-section="homepage hero"] li[class="cmp-carousel__item js_slide active"] p[class="copy body-03"]
+      Wait-For-Loaded: True
+  - al_vehi_txt:
+      Locator-Type   : css selector
+      Locator-Value  : div[data-aa-content-section="explore all vehicles"] h2[class="tabbed-container__title "]
+      Wait-For-Loaded: True
+  - shop_tools_txt:
+      Locator-Type   : css selector
+      Locator-Value  : h2[class="ttac-headline align-center spacing-none-d spacing-none-d-p"]
+      Wait-For-Loaded: True
+  - play_btn:
+      Locator-Type   : css selector
+      Locator-Value  : div[data-aa-content-section="homepage hero"] li[class="cmp-carousel__item js_slide active"] button[class="video-control button-pause"]
+      Wait-For-Loaded: False
