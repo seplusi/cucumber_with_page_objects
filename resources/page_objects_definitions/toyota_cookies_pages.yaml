@@ -1,25 +1,31 @@
-MobileToyotaCookiesPage:
-  - cookie_banner:
+ToyotaCookiesPage:
+  - PageElement:
+      Locator-Name   : cookie_banner
       Locator-Type   : css selector
       Locator-Value  : div[class="cookie-banner cookie-banner--default visible"]
       Wait-For-Loaded: True
-  - accept_btn:
+  - PageElement:
+      Locator-Name   : accept_btn
       Locator-Type   : css selector
       Locator-Value  : button[class="cookie-banner__accept"]
       Wait-For-Loaded: True
-  - decline_btn:
+  - PageElement:
+      Locator-Name   : decline_btn
       Locator-Type   : css selector
       Locator-Value  : button[class="cookie-banner__reject"]
       Wait-For-Loaded: True
-  - title:
+  - PageElement:
+      Locator-Name   : title
       Locator-Type   : css selector
       Locator-Value  : div[class="cookie-banner__title"]
       Wait-For-Loaded: True
-  - close_btn:
+  - PageElement:
+      Locator-Name   : close_btn
       Locator-Type   : css selector
       Locator-Value  : button[aria-label="Close Cookie Banner"]
       Wait-For-Loaded: True
-  - content_txt:
+  - PageElement:
+      Locator-Name   : content_txt
       Locator-Type   : css selector
       Locator-Value  : div[class="cookie-banner__primary-content"]
       Wait-For-Loaded: True

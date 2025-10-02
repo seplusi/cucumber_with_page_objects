@@ -1,45 +1,180 @@
-MobileToyotaHomePage:
-  - toyota_logo_btn:
+ToyotaHomePage:
+  - PageElement:
+      Locator-Name   : toyota_logo_btn
       Locator-Type   : css selector
-      Locator-Value  : a[data-di-id="#mobile-logo"]
+      Locator-Value  : a[data-di-id="#logo"]
       Wait-For-Loaded: True
-  - user_btn:
+  - PageElement:
+      Locator-Name   : vehicles_btn
       Locator-Type   : css selector
-      Locator-Value  : button[aria-label="user icon"]
+      Locator-Value  : button[data-aa-action="aa-action"][class*="select-vehicle"]
       Wait-For-Loaded: True
-  - hamburger_btn:
+  - PageElement:
+      Locator-Name   : shopping_btn
       Locator-Type   : css selector
-      Locator-Value  : button[aria-label="hamburger"]
+      Locator-Value  : button[data-aa-action="aa-action"][class*="shopping-tools"]
       Wait-For-Loaded: True
-  - homepage_carousel:
+  - PageElement:
+      Locator-Name   : owners_btn
       Locator-Type   : css selector
-      Locator-Value  : div[data-aa-content-section="homepage hero"] ul[data-panelselect="carousel"]
+      Locator-Value  : button[data-aa-action="aa-action"][class*="owners"]
       Wait-For-Loaded: True
-  - learn_more:
+  - PageElement:
+      Locator-Name   : user_btn
       Locator-Type   : css selector
-      Locator-Value  : div[data-aa-content-section="homepage hero"] li[class="cmp-carousel__item js_slide active"] span
+      Locator-Value  : button > div[class="user-icon-wrap"]
       Wait-For-Loaded: True
-  - info_btn:
-      Locator-Type   : css selector
-      Locator-Value  : div[data-aa-content-section="homepage hero"] li[class="cmp-carousel__item js_slide active"] button[aria-label="info"]
-      Wait-For-Loaded: True
-  - heading_txt:
-      Locator-Type   : css selector
-      Locator-Value  : div[data-aa-content-section="homepage hero"] li[class="cmp-carousel__item js_slide active"] h2[class="title heading-02"]
-      Wait-For-Loaded: True
-  - subhead_txt:
-      Locator-Type   : css selector
-      Locator-Value  : div[data-aa-content-section="homepage hero"] li[class="cmp-carousel__item js_slide active"] p[class="copy body-03"]
-      Wait-For-Loaded: True
-  - al_vehi_txt:
+  - PageElement:
+      Locator-Name   : expl_all_vehi_txt
       Locator-Type   : css selector
       Locator-Value  : div[data-aa-content-section="explore all vehicles"] h2[class="tabbed-container__title "]
       Wait-For-Loaded: True
-  - shop_tools_txt:
+  - PageElements:
+      Locator-Name   : expl_all_vehi_lst
       Locator-Type   : css selector
-      Locator-Value  : h2[class="ttac-headline align-center spacing-none-d spacing-none-d-p"]
+      Locator-Value  : div[data-aa-content-section="explore all vehicles"]  ol[role="tablist"] > li
       Wait-For-Loaded: True
-  - play_btn:
+
+ToyotaVehiclesPage:
+  - PageElement:
+      Locator-Name   : toyota_logo_btn
       Locator-Type   : css selector
-      Locator-Value  : div[data-aa-content-section="homepage hero"] li[class="cmp-carousel__item js_slide active"] button[class="video-control button-pause"]
-      Wait-For-Loaded: False
+      Locator-Value  : a[data-di-id="#logo"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : vehicles_btn
+      Locator-Type   : css selector
+      Locator-Value  : button[data-aa-action="aa-action"][class*="select-vehicle"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : shopping_btn
+      Locator-Type   : css selector
+      Locator-Value  : button[data-aa-action="aa-action"][class*="shopping-tools"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : owners_btn
+      Locator-Type   : css selector
+      Locator-Value  : button[data-aa-action="aa-action"][class*="owners"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : user_btn
+      Locator-Type   : css selector
+      Locator-Value  : button > div[class="user-icon-wrap"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : cross_and_minivans_btn
+      Locator-Type   : css selector
+      Locator-Value  : li[data-model-category="crossovers-suvs"] > button
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : cars_and_minivans_btn
+      Locator-Type   : css selector
+      Locator-Value  : li[data-model-category="cars-minivan"] > button
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : trucks_btn
+      Locator-Type   : css selector
+      Locator-Value  : li[data-model-category="trucks"] > button
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : electrified_btn
+      Locator-Type   : css selector
+      Locator-Value  : li[data-model-category="electrified"] > button
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : upcom_vehi_btn
+      Locator-Type   : css selector
+      Locator-Value  : li[data-model-category="upcoming-vehicle"] > button
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : gazoo_rcn_btn
+      Locator-Type   : css selector
+      Locator-Value  : div[class="performance-links"] a[aria-label="Gazoo Racing"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : trd_pro_btn
+      Locator-Type   : css selector
+      Locator-Value  : div[class="performance-links"] a[aria-label="TRD Pro"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : view_all_vehi_btn
+      Locator-Type   : css selector
+      Locator-Value  : ul[class="models"] a[href="/all-vehicles/"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : cert_used_vehi_btn
+      Locator-Type   : css selector
+      Locator-Value  : ul[class="models"] a[href*="certified"]
+      Wait-For-Loaded: True
+  - PageElements:
+      Locator-Name   : cross_suvs_lst
+      Locator-Type   : css selector
+      Locator-Value  : ul[class="vehicles"] > li[data-model-category="crossovers-suvs"]
+      Wait-For-Loaded: True
+
+ToyotaShoppingPage:
+  - PageElement:
+      Locator-Name   : toyota_logo_btn
+      Locator-Type   : css selector
+      Locator-Value  : a[data-di-id="#logo"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : vehicles_btn
+      Locator-Type   : css selector
+      Locator-Value  : button[data-aa-action="aa-action"][class*="select-vehicle"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : shopping_btn
+      Locator-Type   : css selector
+      Locator-Value  : button[data-aa-action="aa-action"][class*="shopping-tools"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : owners_btn
+      Locator-Type   : css selector
+      Locator-Value  : button[data-aa-action="aa-action"][class*="owners"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : user_btn
+      Locator-Type   : css selector
+      Locator-Value  : button > div[class="user-icon-wrap"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : find_yr_vehicle_txt
+      Locator-Type   : css selector
+      Locator-Value  : ul[class="col1"] > li[class="category"]:nth-child(1)
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : toy_cert_used_veh
+      Locator-Type   : css selector
+      Locator-Value  : ul[class="col1"] a[href*="https://www.toyotacertified.com"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : accessories
+      Locator-Type   : css selector
+      Locator-Value  : ul[class="col1"] a[href="/accessories/"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : comp_vehi
+      Locator-Type   : css selector
+      Locator-Value  : ul[class="col1"] a[href="/compare/"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : buy_parts_access
+      Locator-Type   : css selector
+      Locator-Value  : ul[class="col1"] a[href="https://autoparts.toyota.com/"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : shop_online_w_spath
+      Locator-Type   : css selector
+      Locator-Value  : ul[class="col1"] a[href="/smartpath/how-it-works/"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : view_broch
+      Locator-Type   : css selector
+      Locator-Value  : ul[class="col1"] a[href="/brochures/"]
+      Wait-For-Loaded: True
+  - PageElements:
+      Locator-Name   : shopping_slides
+      Locator-Type   : css selector
+      Locator-Value  : div.primary-links-wrapper > ul[data-aarole="cta-container"] > li
+      Wait-For-Loaded: True

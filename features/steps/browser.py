@@ -31,8 +31,8 @@ def load_and_accept_cookie(context):
      context.page.accept()
 
 @step('cookie banner is not displayed after some time')
-def element_not_displayed_after_some_time(context):
-     context.page.cookie_banner_not_displayed_after_some_time()
+def element_not_displayed_after_some_time(context, timeout=10):
+     context.page.cookie_banner_not_displayed_after_some_time(timeout)
 
 @step('the text of element "{element}" is equal to "{text}"')
 def element_text_is_equal(context, element, text):
@@ -83,7 +83,7 @@ def number_of_elements_on_list(context, count, element_group, timeout=10):
      init_ts = int(time.time())
      while int(time.time()) < init_ts + timeout:
           try:
-               if len(getattr(context.page, element_group)) == count:
+               if len(getattr(context.page, element_group).web_elements) == count:
                     break
                time.sleep(1)
           except Exception:
@@ -93,7 +93,7 @@ def number_of_elements_on_list(context, count, element_group, timeout=10):
 
 @step('the elements list "{elements_list}" contains the following texts in this order')
 def list_text_contain(context, elements_list):
-     for row, element in zip(context.table, getattr(context.page, elements_list)):
+     for row, element in zip(context.table, getattr(context.page, elements_list).web_elements):
           assert row['content'] == element.text, f'{row["content"]} differs from {element.text}'
 
 @step('each car slide has the correct info after moving the mouse to it')

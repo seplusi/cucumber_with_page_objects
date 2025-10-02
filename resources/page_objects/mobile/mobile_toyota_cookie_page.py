@@ -8,7 +8,7 @@ class MobileToyotaCookiesPage(object):
     def __init__(self, driver, explicit_wait=20):
         self.driver = driver
         # Get all elements locators
-        with open('resources/page_objects_definitions/toyota_cookies_pages.yaml', 'r') as f:
+        with open('resources/page_objects_definitions/mobile_toyota_cookies_pages.yaml', 'r') as f:
             self.data = yaml.load(f, Loader=yaml.SafeLoader)
         # Create page elements
         for obj_def in self.data[self.__class__.__name__]:

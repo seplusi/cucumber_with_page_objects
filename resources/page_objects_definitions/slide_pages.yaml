@@ -1,0 +1,47 @@
+CarSlide:
+  - PageElement:
+      Locator-Name   : as_shown_price
+      Locator-Type   : css selector
+      Locator-Value  : p.as-shown
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : model_name
+      Locator-Type   : css selector
+      Locator-Value  : p.model
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : msrp_price
+      Locator-Type   : css selector
+      Locator-Value  : p.short-description
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : build_link
+      Locator-Type   : css selector
+      Locator-Value  : a[href*="/configurator/build"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : offers_link
+      Locator-Type   : css selector
+      Locator-Value  : a[href*="/local-specials/"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : car_slide_image
+      Locator-Type   : css selector
+      Locator-Value  : div.vehicle-image-wrapper  > img
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : top_level_text
+      Locator-Type   : css selector
+      Locator-Value  : span.top-label
+      Wait-For-Loaded: False
+ShoppingCarSlide:
+  - PageElement:
+      Locator-Name   : info_txt
+      Locator-Type   : css selector
+      Locator-Value  : div.menu-text > span
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : shp_car_slide_image
+      Locator-Type   : css selector
+      Locator-Value  : picture
+      Wait-For-Loaded: True

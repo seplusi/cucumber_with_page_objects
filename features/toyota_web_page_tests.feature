@@ -11,7 +11,6 @@ Feature: Test feature
     When I accept the cookie
     Then cookie banner is not displayed after some time
 
-
   Scenario: Test cookie content and acceptance
     Given I open a chrome web browser and go to "https://www.toyota.com/" url
     And the page "ToyotaCookiesPage" is loaded after some time
@@ -22,7 +21,6 @@ Feature: Test feature
     When I accept the cookie
     Then cookie banner is not displayed after some time
     And the cookie ".www.toyota.com" is found in the browser cookies
-
 
   Scenario: Test cookie when is declined
     Given I open a chrome web browser and go to "https://www.toyota.com/" url
@@ -44,7 +42,6 @@ Feature: Test feature
     And cookie banner is not displayed after some time
     And the cookie ".www.toyota.com" is found in the browser cookies
 
-
   Scenario: Test toyota home web page
     Given I open a chrome web browser and go to "https://www.toyota.com/" url
     And the page "ToyotaCookiesPage" is loaded after some time
@@ -62,7 +59,6 @@ Feature: Test feature
       | Crossovers & SUVs |
       | Electrified       |
       | Upcoming Vehicles |
-
 
   Scenario: Test toyota vehicles web page
     Given I open a chrome web browser and go to "https://www.toyota.com/" url
@@ -91,7 +87,7 @@ Feature: Test feature
     | RAV4                    |                   |
     | RAV4 Hybrid             | Hybrid EV         |
     | RAV4 Plug-in Hybrid     | Plug-in Hybrid EV |
-    | bZ4X                    | Battery EV        |
+    | bZ                      | Battery EV        |
     | Highlander              |                   |
     | Highlander Hybrid       | Hybrid EV         |
     | Grand Highlander        |                   |
@@ -101,7 +97,6 @@ Feature: Test feature
     | Toyota Crown Signia     | Hybrid EV         |
     | Land Cruiser            | Hybrid EV         |
     | Sequoia                 | Hybrid EV         |
-
 
   Scenario: Test toyota shopping web page
     Given I open a chrome web browser and go to "https://www.toyota.com/" url
@@ -127,4 +122,3 @@ Feature: Test feature
     | Find a Dealer    |
     | Search Inventory |
     | Special Offers   |
-

@@ -1,40 +1,37 @@
+import yaml
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from resources.page_objects.common.page_object_common_class import PageObjectCommonClass
 
 
-AS_SHOWN_PRICE = 'p.as-shown'
-MODEL_NAME = 'p.model'
-MSRP_PRICE = 'p.short-description'
-BUILD_LINK = 'a[href*="/configurator/build"]'
-OFFERS_LINK = 'a[href*="/local-specials/"]'
-CAR_SLIDE_IMAGE = 'div.vehicle-image-wrapper  > img'
-
-
-class CarSlide(object):
+class CarSlide(PageObjectCommonClass):
     def __init__(self, parent_element, explicit_wait=20):
-        self.element = parent_element
-        self.wait_driver = WebDriverWait(self.element, explicit_wait)
-        self.wait_driver.until(EC.visibility_of_element_located((By.CSS_SELECTOR, CAR_SLIDE_IMAGE)))
-        self.model_name = self.wait_driver.until(EC.visibility_of_element_located((By.CSS_SELECTOR, MODEL_NAME))).text
-        self.model_price = self.wait_driver.until(EC.visibility_of_element_located((By.CSS_SELECTOR, MSRP_PRICE))).text
-        self.build_link = self.wait_driver.until(EC.element_to_be_clickable((By.CSS_SELECTOR, BUILD_LINK)))
-        self.offers_link = self.wait_driver.until(EC.element_to_be_clickable((By.CSS_SELECTOR, OFFERS_LINK)))
-        self.as_shown_price = self.wait_driver.until(EC.visibility_of_element_located((By.CSS_SELECTOR, AS_SHOWN_PRICE))).text
-        self.msrp_price = self.wait_driver.until(EC.visibility_of_element_located((By.CSS_SELECTOR, MSRP_PRICE))).text
+        super().__init__(parent_element)
+        # Get all elements locators
+        with open('resources/page_objects_definitions/slide_pages.yaml', 'r') as f:
+            self.data = yaml.load(f, Loader=yaml.SafeLoader)
+        # Create page elements
+        self._load_page_object(explicit_wait)
 
     @property
-    def top_level_text(self):
+    def get_safe_top_level_text(self):
         try:
-            return self.element.find_element(By.CSS_SELECTOR, 'span.top-label').text
+            return self.top_level_text.web_element.text
         except Exception:
             return ''
 
 INFO_TXT = 'div.menu-text > span'
 SHP_CAR_SLIDE_IMAGE = 'picture'
 
-class ShoppingCarSlide(object):
+class ShoppingCarSlide(PageObjectCommonClass):
     def __init__(self, parent_element, explicit_wait=10):
-        self.wait_driver = WebDriverWait(parent_element, explicit_wait)
-        self.info_txt = self.wait_driver.until(EC.visibility_of_element_located((By.CSS_SELECTOR, INFO_TXT))).text
-        self.wait_driver.until(EC.visibility_of_element_located((By.CSS_SELECTOR, SHP_CAR_SLIDE_IMAGE)))
+        super().__init__(parent_element)
+        # Get all elements locators
+        with open('resources/page_objects_definitions/slide_pages.yaml', 'r') as f:
+            self.data = yaml.load(f, Loader=yaml.SafeLoader)
+        # Create page elements
+        self._load_page_object(explicit_wait)
+#        self.wait_driver = WebDriverWait(parent_element, explicit_wait)
+#        self.info_txt = self.wait_driver.until(EC.visibility_of_element_located((By.CSS_SELECTOR, INFO_TXT))).text
+#        self.wait_driver.until(EC.visibility_of_element_located((By.CSS_SELECTOR, SHP_CAR_SLIDE_IMAGE)))
