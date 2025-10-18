@@ -1,45 +1,74 @@
 MobileToyotaHomePage:
-  - toyota_logo_btn:
+  - PageElement:
+      Locator-Name   : toyota_logo_btn
       Locator-Type   : css selector
       Locator-Value  : a[data-di-id="#mobile-logo"]
       Wait-For-Loaded: True
-  - user_btn:
+  - PageElement:  
+      Locator-Name   : user_btn
       Locator-Type   : css selector
       Locator-Value  : button[aria-label="user icon"]
       Wait-For-Loaded: True
-  - hamburger_btn:
+  - PageElement:  
+      Locator-Name   : hamburger_btn
       Locator-Type   : css selector
       Locator-Value  : button[aria-label="hamburger"]
       Wait-For-Loaded: True
-  - homepage_carousel:
+  - PageElement: 
+      Locator-Name   : homepage_carousel
       Locator-Type   : css selector
       Locator-Value  : div[data-aa-content-section="Homepage Hero"] ul[data-panelselect="carousel"]
       Wait-For-Loaded: True
-  - learn_more:
+  - PageElement:  
+      Locator-Name   : learn_more
       Locator-Type   : css selector
-      Locator-Value  : div[data-aa-content-section="Homepage Hero"] li[class="cmp-carousel__item js_slide active"] span
+      Locator-Value  : div[data-aa-content-section="Homepage Hero"] li[class="cmp-carousel__item js_slide active"] a[data-aa-link_button_action] > span
       Wait-For-Loaded: True
-  - info_btn:
+  - PageElement:  
+      Locator-Name   : info_btn
       Locator-Type   : css selector
       Locator-Value  : div[data-aa-content-section="Homepage Hero"] li[class="cmp-carousel__item js_slide active"] button[aria-label="info"]
       Wait-For-Loaded: True
-  - heading_txt:
+  - PageElement:  
+      Locator-Name   : heading_txt
       Locator-Type   : css selector
       Locator-Value  : div[data-aa-content-section="Homepage Hero"] li[class="cmp-carousel__item js_slide active"] h2[class="title heading-02"]
       Wait-For-Loaded: True
-  - subhead_txt:
+  - PageElement:  
+      Locator-Name   : subhead_txt
       Locator-Type   : css selector
       Locator-Value  : div[data-aa-content-section="Homepage Hero"] li[class="cmp-carousel__item js_slide active"] p[class="copy body-03"]
       Wait-For-Loaded: True
-  - al_vehi_txt:
+  - PageElement:  
+      Locator-Name   : al_vehi_txt
       Locator-Type   : css selector
       Locator-Value  : div[data-aa-content-section="explore all vehicles"] h2[class="tabbed-container__title "]
       Wait-For-Loaded: True
-  - shop_tools_txt:
+  - PageElement:  
+      Locator-Name   : shop_tools_txt
       Locator-Type   : css selector
       Locator-Value  : h2[class="ttac-headline align-center spacing-none-d spacing-none-d-p"]
       Wait-For-Loaded: True
-  - play_btn:
+  - PageElement:  
+      Locator-Name   : play_btn
       Locator-Type   : css selector
       Locator-Value  : div[data-aa-content-section="Homepage Hero"] li[class="cmp-carousel__item js_slide active"] button[class="video-control button-pause"]
       Wait-For-Loaded: False
+
+MobileToyotaHomePagewithHamburgerOptions:
+  - PageElement:
+      Locator-Name   : toyota_logo_btn
+      Locator-Type   : css selector
+      Locator-Value  : a[data-di-id="#mobile-logo"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : user_btn
+      Locator-Type   : css selector
+      Locator-Value  : button[aria-label="user icon"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : hamburger_btn
+      Locator-Type   : css selector
+      Locator-Value  : button[aria-label="hamburger"]
+      Wait-For-Loaded: True
+  

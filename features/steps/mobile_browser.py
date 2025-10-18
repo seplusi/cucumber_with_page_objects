@@ -13,7 +13,7 @@ def create_webdriver(context, url):
     appium_server_url = 'http://localhost:4723/wd/hub'
 
     options = UiAutomator2Options()
-    appium_capabilities = {"deviceName": "RZCX10WSYZF", "platformVersion": "15"}
+    appium_capabilities = {"deviceName": "RZCX10WSYZF", "platformVersion": "16"}
     appium_capabilities.update({"appPackage": "com.android.chrome", "appActivity": "com.google.android.apps.chrome.Main", 
                                 "newCommandTimeout": "180", "NoReset": "true", "autoGrantPermissions": "true", "W3C":"true"})
 

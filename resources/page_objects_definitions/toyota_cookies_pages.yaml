@@ -20,11 +20,6 @@ ToyotaCookiesPage:
       Locator-Value  : div[class="cookie-banner__title"]
       Wait-For-Loaded: True
   - PageElement:
-      Locator-Name   : close_btn
-      Locator-Type   : css selector
-      Locator-Value  : button[aria-label="Close Cookie Banner"]
-      Wait-For-Loaded: True
-  - PageElement:
       Locator-Name   : content_txt
       Locator-Type   : css selector
       Locator-Value  : div[class="cookie-banner__primary-content"]

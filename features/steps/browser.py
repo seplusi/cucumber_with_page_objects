@@ -8,6 +8,7 @@ from resources.page_objects.toyota_cookie_page import ToyotaCookiesPage
 from resources.page_objects.toyota_home_page import ToyotaHomePage, ToyotaVehiclesPage, ToyotaShoppingPage
 from resources.page_objects.mobile.mobile_toyota_cookie_page import MobileToyotaCookiesPage
 from resources.page_objects.mobile.mobile_toyota_home_page import MobileToyotaHomePage
+from resources.page_objects.mobile.mobile_toyota_home_page_with_hamburger_options import MobileToyotaHomePagewithHamburgerOptions
 
 chromedriver_path = "/home/luis/Documents/Projects/chromedriver/chromedriver"
 
