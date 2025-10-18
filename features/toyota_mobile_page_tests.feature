@@ -72,3 +72,12 @@ Feature: Test feature
     And the page "MobileToyotaHomePage" is loaded after some time
     When I click on the "hamburger_btn" button
     Then the page "MobileToyotaHomePagewithHamburgerOptions" is loaded after some time
+    And the text of element "vehic_btn" is equal to "Vehicles"
+    And the text of element "shop_btn" is equal to "Shopping"
+    And the text of element "owners_btn" is equal to "Owners"
+    And the text of element "build_price_btn" is equal to "Build & Price"
+    And the text of element "search_inv_btn" is equal to "Search Inventory"
+    And the text of element "find_dealer_btn" is equal to "Find a Dealer"
+    And the text of element "spc_offers_btn" is equal to "Special Offers"
+    And the text of element "update_btn" is equal to "Update"
+    And the text of element "zip_input_txt_box" is equal to "95610"

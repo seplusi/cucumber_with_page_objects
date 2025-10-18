@@ -71,4 +71,48 @@ MobileToyotaHomePagewithHamburgerOptions:
       Locator-Type   : css selector
       Locator-Value  : button[aria-label="hamburger"]
       Wait-For-Loaded: True
-  
+  - PageElement:
+      Locator-Name   : vehic_btn
+      Locator-Type   : css selector
+      Locator-Value  : label[data-aa-link-type="button"][for="1-vehicles"] > h2
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : shop_btn
+      Locator-Type   : css selector
+      Locator-Value  : label[data-aa-link-type="button"][for="1-shopping"] > h2
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : owners_btn
+      Locator-Type   : css selector
+      Locator-Value  : label[data-aa-link-type="button"][for="1-owners"] > h2
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : build_price_btn
+      Locator-Type   : css selector
+      Locator-Value  : li[class*="build"] > a[href="/configurator/"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : search_inv_btn
+      Locator-Type   : css selector
+      Locator-Value  : li[class*="inventory"] > a[href="/search-inventory/"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : find_dealer_btn
+      Locator-Type   : css selector
+      Locator-Value  : li[class*="dealer"] > a[href="/dealers/#default"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : spc_offers_btn
+      Locator-Type   : css selector
+      Locator-Value  : li[class*="offers"] > a[href="/local-specials/"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : update_btn
+      Locator-Type   : css selector
+      Locator-Value  : button[data-aa-search-type="zipcode"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : zip_input_txt_box
+      Locator-Type   : css selector
+      Locator-Value  : input[name="zipcode"]
+      Wait-For-Loaded: True
