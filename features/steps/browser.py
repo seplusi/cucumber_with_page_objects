@@ -9,6 +9,7 @@ from resources.page_objects.toyota_home_page import ToyotaHomePage, ToyotaVehicl
 from resources.page_objects.mobile.mobile_toyota_cookie_page import MobileToyotaCookiesPage
 from resources.page_objects.mobile.mobile_toyota_home_page import MobileToyotaHomePage
 from resources.page_objects.mobile.mobile_toyota_home_page_with_hamburger_options import MobileToyotaHomePagewithHamburgerOptions
+from resources.page_objects.mobile.mobile_toyota_search_inventory_page import MobileToyotaSearchInventoryPage
 
 chromedriver_path = "/home/luis/Documents/Projects/chromedriver/chromedriver"
 
@@ -49,6 +50,29 @@ def element_text_is_equal(context, element, reg_txt):
 def element_text_contains(context, element, text):
      webdriver_ele = getattr(context.page, element)
      assert text in webdriver_ele.web_element.text, f'Text {text} not in {webdriver_ele.web_element.text}'
+
+@step('the element "{element}" has attribute "{attr}" with value "{text}"')
+def element_text_contains(context, element, attr, text):
+     webdriver_ele = getattr(context.page, element)
+     assert text == webdriver_ele.web_element.get_attribute(attr), f'Text {text} not in {webdriver_ele.web_element.text}'
+
+@step('I type text "{text}" using the input element "{element}"')
+def element_text_contains(context, text, element):
+     webdriver_ele = getattr(context.page, element)
+     webdriver_ele.web_element.send_keys(text)
+
+@step('the element "{element}" is displayed after some time')
+def waut_4_element_be_displayed(context, element, timeout=10):
+     webdriver_ele = getattr(context.page, element)
+     init_ts = int(time.time())
+     while int(time.time()) < init_ts + timeout:
+          try:
+               webdriver_ele.web_element
+               break
+          except Exception as e:
+               time.sleep(0.5)
+     else:
+          webdriver_ele.web_element
 
 @step('I close webdriver')
 def close_driver(context):

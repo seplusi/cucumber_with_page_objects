@@ -67,7 +67,7 @@ MobileToyotaHomePagewithHamburgerOptions:
       Locator-Value  : button[aria-label="user icon"]
       Wait-For-Loaded: True
   - PageElement:
-      Locator-Name   : hamburger_btn
+      Locator-Name   : close_btn
       Locator-Type   : css selector
       Locator-Value  : button[aria-label="hamburger"]
       Wait-For-Loaded: True
@@ -115,4 +115,66 @@ MobileToyotaHomePagewithHamburgerOptions:
       Locator-Name   : zip_input_txt_box
       Locator-Type   : css selector
       Locator-Value  : input[name="zipcode"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : zip_updated_msg
+      Locator-Type   : css selector
+      Locator-Value  : div[class="success show"]
+      Wait-For-Loaded: False
+
+MobileToyotaSearchInventoryPage:
+  - PageElement:
+      Locator-Name   : toyota_logo_btn
+      Locator-Type   : css selector
+      Locator-Value  : a[data-di-id="#mobile-logo"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : user_btn
+      Locator-Type   : css selector
+      Locator-Value  : button[aria-label="user icon"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : hamburger_btn
+      Locator-Type   : css selector
+      Locator-Value  : button[aria-label="hamburger"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : title
+      Locator-Type   : css selector
+      Locator-Value  : div[data-testid="ListingPageHeader"] > div
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : cars_minivans_link
+      Locator-Type   : css selector
+      Locator-Value  : div[data-testid="CategorySelector"] a[href*="Miniva"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : trucks_link
+      Locator-Type   : css selector
+      Locator-Value  : div[data-testid="CategorySelector"] a[href*="Trucks"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : suvs_link
+      Locator-Type   : css selector
+      Locator-Value  : div[data-testid="CategorySelector"] a[href*="SUVs"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : electrified_link
+      Locator-Type   : css selector
+      Locator-Value  : div[data-testid="CategorySelector"] a[href*="Electr"]
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : subtitle
+      Locator-Type   : css selector
+      Locator-Value  : div[id="CarsampMinivan_list"] > div:nth-child(1)
+      Wait-For-Loaded: True
+  - PageElement:
+      Locator-Name   : note_txt
+      Locator-Type   : css selector
+      Locator-Value  : div[id="CarsampMinivan_list"] > div:nth-child(2)
+      Wait-For-Loaded: True
+  - PageElements:
+      Locator-Name   : cars_minivan_model_tiles_lst
+      Locator-Type   : css selector
+      Locator-Value  : div[id="CarsampMinivan_list"] div[data-testid="ModelTile"]
       Wait-For-Loaded: True

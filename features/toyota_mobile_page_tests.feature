@@ -62,7 +62,6 @@ Feature: Test feature
     And I safe click on the "play_btn" button
     And I perform a swipe "up" with percentage "50.0" of total screen
 
-  @debug
   Scenario: Test toyota home web page after clicking hamburger icon
     Given I open an android chrome web browser and go to "https://www.toyota.com/" url
     And I accept to open chrome browser without account 
@@ -80,4 +79,35 @@ Feature: Test feature
     And the text of element "find_dealer_btn" is equal to "Find a Dealer"
     And the text of element "spc_offers_btn" is equal to "Special Offers"
     And the text of element "update_btn" is equal to "Update"
-    And the text of element "zip_input_txt_box" is equal to "95610"
+    And the element "zip_input_txt_box" has attribute "value" with value "95610"
+
+  Scenario: Test toyota home web page after clicking hamburger icon and return home
+    Given I open an android chrome web browser and go to "https://www.toyota.com/" url
+    And I accept to open chrome browser without account 
+    And I change the context to "chrome"
+    And the page "ToyotaCookiesPage" is loaded after some time
+    And I accept the cookie
+    And the page "MobileToyotaHomePage" is loaded after some time
+    And I click on the "hamburger_btn" button
+    And the page "MobileToyotaHomePagewithHamburgerOptions" is loaded after some time
+    When I click on the "close_btn" button
+    Then the page "MobileToyotaHomePage" is loaded after some time
+
+  @debug
+  Scenario: Test toyota home web and search for gr corolla
+    Given I open an android chrome web browser and go to "https://www.toyota.com/" url
+    And I accept to open chrome browser without account 
+    And I change the context to "chrome"
+    And the page "ToyotaCookiesPage" is loaded after some time
+    And I accept the cookie
+    And the page "MobileToyotaHomePage" is loaded after some time
+    And I click on the "hamburger_btn" button
+    And the page "MobileToyotaHomePagewithHamburgerOptions" is loaded after some time
+    And I click on the "zip_input_txt_box" button
+    And I type text "95610" using the input element "zip_input_txt_box"
+    And I hide the keypad
+    And I click on the "update_btn" button
+    And the element "zip_updated_msg" is displayed after some time
+    When I click on the "search_inv_btn" button
+    Then the page "MobileToyotaSearchInventoryPage" is loaded after some time
+    And there are "12" elements on the "cars_minivan_model_tiles_lst" elements list after some time

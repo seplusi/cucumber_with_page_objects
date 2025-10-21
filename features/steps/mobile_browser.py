@@ -23,7 +23,7 @@ def create_webdriver(context, url):
     context.driver.get('https://www.toyota.com')
 
 @step('I change the context to "{context_name}"')
-def change_context_to(context, context_name, timeout=60):
+def change_context_to(context, context_name, timeout=120):
     new_context = None
     init_ts = int(time.time())
     while int(time.time()) < init_ts + timeout and not new_context:
@@ -56,3 +56,7 @@ def swipe_up_with_gesture(context, motion, num):
 def scroll2element(context, element):
     webdriver_ele = context.driver.find_element(AppiumBy.CSS_SELECTOR, 'h2[class="ttac-headline align-center spacing-none-d spacing-none-d-p"]')
     can_scroll_more = context.driver.execute_script('mobile: scrollGesture', {'elementId': webdriver_ele.id, 'direction': 'down', 'percent': 3.0})
+
+@step('I hide the keypad')
+def hide_keypad(context):
+    context.driver.hide_keyboard()
